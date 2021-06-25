@@ -8,9 +8,11 @@
 #'
 #' @return Intrinsic water use efficiency in units of micromol CO2 per mol H2O
 #'
-#' @example
-#' d13C.to.iWUE(-27, 2018, "leaf")
-#'
 #' @export
+#'
+#' @examples \dontrun{
+#' d13C.to.iWUE(-27, 2018, "leaf")
+#' }
+#'
 #'
 #'
