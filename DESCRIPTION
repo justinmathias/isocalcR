@@ -14,3 +14,7 @@ Imports: dplyr (>= 1.0.6)
 Encoding: UTF-8
 Language: en-US
 LazyData: true
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
