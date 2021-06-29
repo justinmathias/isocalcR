@@ -29,9 +29,9 @@
 #'
 #' @export
 #'
-#' @examples \dontrun{
+#' @examples
 #' d13C.to.iWUE(-27, 2015, 900, 24)
-#' }
+#'
 #'
 #'
 #'
