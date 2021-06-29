@@ -1,6 +1,4 @@
-context("test-check_output")
-library(testthat)
-library(isocalcR)
+context("test_check_output")
 
 #Test whether the output is numeric
 test_that("d13C.to.iWUE() returns a numeric value", {

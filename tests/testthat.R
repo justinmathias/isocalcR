@@ -1,4 +1,3 @@
-library(testthat)
-library(isocalcR)
+# Run all unit tests
 
-test_check("isocalcR")
+testthat::test_check("isocalcR")
