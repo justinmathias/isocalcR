@@ -9,7 +9,7 @@ Description: Perform common calculations based on published stable isotope theor
 License: GPL-3
 URL: https://github.com/justinmathias/isocalcR
 BugReports: https://github.com/justinmathias/isocalcR/issues
-Depends: R (>= 4.0.2)
+Depends: R (>= 4.0.0)
 Imports: dplyr (>= 1.0.6)
 Encoding: UTF-8
 Language: en-US
