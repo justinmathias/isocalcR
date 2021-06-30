@@ -6,7 +6,7 @@
 #' @param year Year to which the sample corresponds
 #' @param elevation Elevation (m.a.s.l.) of the sample, necessary to account for photorespiration processes
 #' @param temp Leaf temperature (°C)
-#' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, between -19. - -2.1 if wood
+#' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, between -1.9 - -2.1 if wood
 #'
 #' @return Intrinsic water use efficiency in units of micromol CO2 per mol H2O
 #'
