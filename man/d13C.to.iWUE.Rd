@@ -15,7 +15,7 @@ d13C.to.iWUE(d13C, year, elevation, temp, frac = 0)
 
 \item{temp}{Leaf temperature (°C)}
 
-\item{frac}{Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, between -19. - -2.1 if wood}
+\item{frac}{Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)}
 }
 \value{
 Intrinsic water use efficiency in units of micromol CO2 per mol H2O
