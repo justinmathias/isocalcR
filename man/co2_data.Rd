@@ -8,7 +8,7 @@
 
 }
 \source{
-\href{https://www.sciencedirect.com/science/article/abs/pii/S1125786520300874}
+https://www.sciencedirect.com/science/article/abs/pii/S1125786520300874
 }
 \usage{
 data(co2_data)

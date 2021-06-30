@@ -7,11 +7,11 @@
 #'
 #' @usage data(co2_data)
 #'
-#' @format An object of class \code{"data.frame"}
+#' @format A data frame with 2000 rows and 3 variables:
 #' \describe{
-#' \item{yr}{Year of CO2 and δ13CO2 measurement}
-#' \item{Ca}{Atmospheric CO2 concentration (ppm)}
-#' \item{d13Catm}{Atmospheric δ13CO2 (‰)}}
+#'   \item{yr}{Year of CO2 and δ13CO2 measurement}
+#'   \item{Ca}{Atmospheric CO2 concentration, in ppm}
+#'   \item{d13Catm}{Atmospheric δ13CO2, in per mille, ‰}
 #' }
 #'
 #' @keywords datasets
@@ -26,5 +26,3 @@
 #' data(co2_data)
 #' co2_data
 #' plot(co2_data$yr, co2_data$Ca)
-#'
-"co2_data"
