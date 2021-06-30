@@ -1,8 +1,7 @@
 #' Atmospheric CO2 (ppm) and atmospheric δ13CO2 data for iWUE calculations
 #'
-#' Data are from Belmecheri, Lavergne, 2020, Dendrochronologia, Compiled records
-#' of atmospheric CO2 concentrations and stable carbon isotopes to reconstruct
-#' climate and derive plant ecophysiological indices from tree rings.
+#' @description
+#' Compiled records of atmospheric CO2 concentrations and stable carbon isotopes to reconstruct climate and derive plant ecophysiological indices from tree rings. Data are from Belmecheri, Lavergne, 2020, Dendrochronologia.
 #'
 #' @docType data
 #'
@@ -27,5 +26,3 @@
 #' data(co2_data)
 #' co2_data
 #' plot(co2_data$yr, co2_data$Ca)
-
-"co2_data"
