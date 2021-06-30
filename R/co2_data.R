@@ -20,7 +20,7 @@
 #' CO2 concentrations and stable carbon isotopes to reconstruct climate and derive
 #' plant ecophysiological indices from tree rings. Dendrochronologia, 63, 125748.
 #'
-#' @source \href{https://www.sciencedirect.com/science/article/abs/pii/S1125786520300874}
+#' @source https://www.sciencedirect.com/science/article/abs/pii/S1125786520300874
 #'
 #' @examples
 #' data(co2_data)
