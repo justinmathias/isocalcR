@@ -7,13 +7,6 @@
 #'
 #' @usage data(co2_data)
 #'
-#' @format A data frame with 2000 rows and 3 variables:
-#' \describe{
-#'   \item{yr}{Year of CO2 and d13CO2 measurement}
-#'   \item{Ca}{Atmospheric CO2 concentration, in ppm}
-#'   \item{d13Catm}{Atmospheric d13CO2, in per mille, ‰}
-#' }
-#'
 #' @keywords datasets
 #'
 #' @references Belmecheri, S. & Lavergne, A. (2020). Compiled records of atmospheric
