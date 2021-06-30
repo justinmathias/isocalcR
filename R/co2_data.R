@@ -26,3 +26,5 @@
 #' data(co2_data)
 #' co2_data
 #' plot(co2_data$yr, co2_data$Ca)
+#'
+"co2_data"
