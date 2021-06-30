@@ -1,6 +1,6 @@
-#' Atmospheric CO2 (ppm) and atmospheric d13CO2 data for iWUE calculations
+#' @title co2_data
 #'
-#' Compiled records of atmospheric CO2 concentrations and stable carbon isotopes to reconstruct climate and derive plant ecophysiological indices from tree rings. Data are from Belmecheri, Lavergne, 2020, Dendrochronologia.
+#' @description Compiled records of atmospheric CO2 concentrations and stable carbon isotopes to reconstruct climate and derive plant ecophysiological indices from tree rings. Data are from Belmecheri, Lavergne, 2020, Dendrochronologia.
 #'
 #' @docType data
 #'
