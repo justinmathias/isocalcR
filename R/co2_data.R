@@ -1,4 +1,4 @@
-#' Atmospheric CO2 (ppm) and atmospheric δ13CO2 data for iWUE calculations
+#' Atmospheric CO2 (ppm) and atmospheric d13CO2 data for iWUE calculations
 #'
 #' @description
 #' Compiled records of atmospheric CO2 concentrations and stable carbon isotopes to reconstruct climate and derive plant ecophysiological indices from tree rings. Data are from Belmecheri, Lavergne, 2020, Dendrochronologia.
@@ -9,9 +9,9 @@
 #'
 #' @format A data frame with 2000 rows and 3 variables:
 #' \describe{
-#'   \item{yr}{Year of CO2 and δ13CO2 measurement}
+#'   \item{yr}{Year of CO2 and d13CO2 measurement}
 #'   \item{Ca}{Atmospheric CO2 concentration, in ppm}
-#'   \item{d13Catm}{Atmospheric δ13CO2, in per mille, ‰}
+#'   \item{d13Catm}{Atmospheric d13CO2, in per mille, ‰}
 #' }
 #'
 #' @keywords datasets
