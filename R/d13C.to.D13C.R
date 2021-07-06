@@ -1,6 +1,6 @@
 #' @title d13C.to.D13C
 #'
-#' @description Calculates leaf carbon isotope discrimination from plant tissue d13C signature.
+#' @description Calculates leaf carbon isotope discrimination given plant tissue d13C signature.
 #'
 #' @param d13C Measured plant tissue carbon isotope signature, per mille (‰)
 #' @param year Year to which the sample corresponds
@@ -24,7 +24,7 @@
 #' @export
 #'
 #' @examples
-#' d13C.to.D13C(-27, 2015, 900, 24)
+#' d13C.to.D13C(-27, 2015)
 #'
 #'
 #'
