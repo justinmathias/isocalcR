@@ -8,7 +8,7 @@
 #' @param temp Leaf temperature (°C)
 #' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)
 #'
-#' @return The ratio of intercellular to atmospheric CO2, unitless
+#' @return The ratio of leaf intercellular to atmospheric CO2 (Ci/Ca), unitless
 #'
 #' @references
 #' Badeck, F.-W., Tcherkez, G., Nogués, S., Piel, C. & Ghashghaie, J. (2005). Post-photosynthetic fractionation of stable carbon isotopes between plant organs—a widespread phenomenon. Rapid Commun. Mass Spectrom., 19, 1381–1391.
