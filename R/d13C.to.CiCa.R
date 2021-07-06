@@ -42,8 +42,8 @@ d13C.to.CiCa<- function(d13C, year, elevation, temp, frac = 0) {
   #Assign d13C as d13C.plant
   d13C.plant <- d13C
   #Assign d13C.atm based on year given.
-  d13C.atm <- co2_data[which(co2_data$yr == year),3]
-  Ca <- co2_data[which(co2_data$yr == year),2]
+  d13C.atm <- CO2data[which(CO2data$yr == year),3]
+  Ca <- CO2data[which(CO2data$yr == year),2]
   a <- 4.4 #Fractionation associated with diffusion, Craig 1953.
   b <- 28 #Fractionation associated with Rubisco carboxylation, Ubierna and Farquhar 2014.
   d <- frac #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.
