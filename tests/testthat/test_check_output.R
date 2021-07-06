@@ -6,6 +6,12 @@ test_that("d13C.to.iWUE() returns a numeric value", {
   expect_type(iWUE, "double")
 })
 
+#Test whether the d13C.to.D13C output is numeric
+test_that("d13C.to.D13C() returns a numeric value", {
+  D13C <- d13C.to.D13C(-26, 2015)
+  expect_type(D13C, "double")
+})
+
 #Test whether the d13C.to.Ci output is numeric
 test_that("d13C.to.Ci() returns a numeric value", {
   Ci <- d13C.to.Ci(-26, 2015, 300, 26)
@@ -30,8 +36,3 @@ test_that("d13C.to.diffCaCi() returns a numeric value", {
   expect_type(diffCaCi, "double")
 })
 
-#Test whether the d13C.to.D13C output is numeric
-test_that("d13C.to.D13C() returns a numeric value", {
-  D13C <- d13C.to.D13C(-26, 2015, 300, 26)
-  expect_type(D13C, "double")
-})
