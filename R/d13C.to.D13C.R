@@ -1,6 +1,6 @@
-#' @title d13C.to.iWUE
+#' @title d13C.to.D13C
 #'
-#' @description Calculates leaf intrinsic water use efficiency from plant tissue d13C signature.
+#' @description Calculates leaf carbon isotope discrimination from plant tissue d13C signature.
 #'
 #' @param d13C Measured plant tissue carbon isotope signature, per mille (‰)
 #' @param year Year to which the sample corresponds
@@ -8,7 +8,7 @@
 #' @param temp Leaf temperature (°C)
 #' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)
 #'
-#' @return Intrinsic water use efficiency in units of micromol CO2 per mol H2O
+#' @return Carbon isotope discrimination in units of per mille (‰)
 #'
 #' @references
 #' Badeck, F.-W., Tcherkez, G., Nogués, S., Piel, C. & Ghashghaie, J. (2005). Post-photosynthetic fractionation of stable carbon isotopes between plant organs—a widespread phenomenon. Rapid Commun. Mass Spectrom., 19, 1381–1391.
@@ -30,12 +30,12 @@
 #' @export
 #'
 #' @examples
-#' d13C.to.iWUE(-27, 2015, 900, 24)
+#' d13C.to.D13C(-27, 2015, 900, 24)
 #'
 #'
 #'
 #'
-d13C.to.iWUE <- function(d13C, year, elevation, temp, frac = 0) {
+d13C.to.D13C <- function(d13C, year, elevation, temp, frac = 0) {
 
   #Assign d13C as d13C.plant
   d13C.plant <- d13C
@@ -47,22 +47,5 @@ d13C.to.iWUE <- function(d13C, year, elevation, temp, frac = 0) {
   d <- frac #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.
   D13C <- ((d13C.atm - (d13C.plant - d))/(1 + ((d13C.plant - d)/1000)))
 
-  f <- 12 #Fractionation associated with photorespiration, Ubierna and Farquhar 2014.
-  #Calculate atmospheric pressure (Pa), given elevation.
-  P0 <- 101325
-  Base.temp <- 298.15    #Base temperature, units (K)
-  ALR  <- 0.0065    #Adiabiatic lapse rate, units (K/m), Davies and Allen 1973
-  Grav  <- 9.80665   #Gravitational acceleration, units (m/s^2), Davies and Allen 1973
-  R  <- 8.3145    #Universal gas constant, units (J/mol/K), Davies and Allen 1973
-  MWair <- 0.028963  #Molecular weight of dry air, units (kg/mol), Tsilingiris 2008
-  Patm <- P0*(1.0 - ALR*elevation/Base.temp)^(Grav*MWair/(R*ALR)) #Finally, convert elevation to pressure, Pa.
-  deltaHa <- 37830 #Activation energy for Gammastar (J/mol), Bernacchi et al. 2001.
-  Temp.C <- temp
-  Gammastar25 <- 4.332 #Pa, value based on Bernacchi et al. (2001), converted to Pa by T. Davis assuming elevation of 227.076 m.a.s.l. From Beni Stocker's RPmodel.
-  Gammastar <- Gammastar25*(Patm/P0)*exp(1)^((deltaHa*(Temp.C-298))/(R*Temp.C*298)) #CO2 compensation point in the absence of mitochondrial respiration, units (Pa)
-
-  pCa <- (1.0e-6)*Ca*Patm #Need to convert atm CO2 (ppm) to atm CO2 (Pa)
-  Ci <- ((D13C-a+f*(Gammastar/pCa))/(b-a))*Ca
-  iWUE <- (Ca - Ci)*0.625
-  return(iWUE)
+  return(D13C)
 }
