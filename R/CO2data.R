@@ -10,7 +10,7 @@
 #' \describe{
 #'   \item{yr}{Year of CO2 and d13CO2 measurement}
 #'   \item{Ca}{Atmospheric CO2 concentration, in ppm}
-#'   \item{d13Catm}{Atmospheric d13CO2, in per mille, ‰}
+#'   \item{d13C.atm}{Atmospheric d13CO2, in per mille, ‰}
 #' }
 #'
 #' @keywords datasets
@@ -28,3 +28,4 @@
 #'
 "CO2data"
 
+utils::globalVariables(c("yr","Ca","d13C.atm"))
