@@ -27,5 +27,3 @@
 #' head(CO2data)
 #'
 "CO2data"
-
-utils::globalVariables(c("yr","Ca","d13C.atm"))

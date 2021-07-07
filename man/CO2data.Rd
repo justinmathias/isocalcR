@@ -9,7 +9,7 @@ A data frame with 2020 rows and 3 variables:
 \describe{
   \item{yr}{Year of CO2 and d13CO2 measurement}
   \item{Ca}{Atmospheric CO2 concentration, in ppm}
-  \item{d13Catm}{Atmospheric d13CO2, in per mille, ‰}
+  \item{d13C.atm}{Atmospheric d13CO2, in per mille, ‰}
 }
 }
 \source{
