@@ -59,9 +59,9 @@ d13C.to.iWUE(-27, 2015, 300, 25) #Calculate iWUE from leaf organic material with
 #> [1] 94.4544
 ```
 
-Atmospheric CO<sub>2</sub> and atmospheric δ<sup>13</sup>CO<sub>2</sub>
-data can be loaded and viewed for the period 0 C.E. to 2019 C.E. Data
-are from Belmecheri and Lavergne (2020).
+Data for atmospheric CO<sub>2</sub> and atmospheric
+δ<sup>13</sup>CO<sub>2</sub> for the period 0 C.E. to 2019 C.E. can be
+loaded and viewed. Data are from Belmecheri and Lavergne (2020).
 
 ``` r
 data(CO2data)
