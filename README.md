@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-# [![R-CMD-check](https://github.com/justinmathias/isocalcR/workflows/R-CMD-check/badge.svg)](https://github.com/justinmathias/isocalcR/actions) [![codecov](https://codecov.io/gh/justinmathias/isocalcR/branch/main/graph/badge.svg?token=W72B141APE)](https://codecov.io/gh/justinmathias/isocalcR) [![metacran downloads](https://cranlogs.r-pkg.org/badges/isocalcR)](https://cran.r-project.org/package=isocalcR) [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+# [![R-CMD-check](https://github.com/justinmathias/isocalcR/workflows/R-CMD-check/badge.svg)](https://github.com/justinmathias/isocalcR/actions) [![codecov](https://codecov.io/gh/justinmathias/isocalcR/branch/main/graph/badge.svg?token=W72B141APE)](https://codecov.io/gh/justinmathias/isocalcR) [![metacran downloads](https://cranlogs.r-pkg.org/badges/isocalcR)](https://cran.r-project.org/package=isocalcR) [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/isocalcR)](https://cran.r-project.org/package=isocalcR)
 
 <!-- badges: end -->
 
