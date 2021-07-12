@@ -19,8 +19,11 @@ effort includes best practices of data usage, as the user is not
 required to download atmospheric CO<sub>2</sub> or atmospheric
 δ<sup>13</sup>CO<sub>2</sub> data for the workhorse calculations, but
 instead relies on published, peer-reviewed, and recommended publicly
-available data (Belmecheri and Lavergne, 2020). At present, calculations
-for years 0 C.E. - 2019 C.E. will work, with 2020 being added shortly.
+available data (Belmecheri and Lavergne, 2020). `isocalcR` is not meant
+to replace an understanding of the underlying physiological mechanisms
+related to these calculations, but instead to streamline the process. At
+present, calculations for years 0 C.E. - 2019 C.E. will work, with 2020
+being added shortly.
 
 ## Installation
 
