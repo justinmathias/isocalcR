@@ -23,7 +23,7 @@ available data (Belmecheri and Lavergne, 2020). `isocalcR` is not meant
 to replace an understanding of the underlying physiological mechanisms
 related to these calculations, but instead to streamline the process. At
 present, calculations for years 0 C.E. - 2019 C.E. will work, with 2020
-being added shortly.
+available for the development version.
 
 ## Installation
 
