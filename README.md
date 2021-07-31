@@ -22,8 +22,8 @@ instead relies on published, peer-reviewed, and recommended publicly
 available data (Belmecheri and Lavergne, 2020). `isocalcR` is not meant
 to replace an understanding of the underlying physiological mechanisms
 related to these calculations, but instead to streamline the process. At
-present, calculations for years 0 C.E. - 2019 C.E. will work, with 2020
-available for the development version.
+present, calculations for years 0 C.E. - 2020 C.E. are stable and will
+work with all functions, with 2021 being added at the end of the year.
 
 ## Installation
 
@@ -60,7 +60,7 @@ Calculate leaf intrinsic water use efficiency from leaf δ<sup>13</sup>C:
 ``` r
 library(isocalcR) #Load the package
 d13C.to.iWUE(-27, 2015, 300, 25) #Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
-#> [1] 94.4544
+#> [1] 80.86748
 ```
 
 Data for atmospheric CO<sub>2</sub> and atmospheric
