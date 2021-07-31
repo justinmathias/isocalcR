@@ -1,4 +1,4 @@
-# isocalcR 0.0.1
+# isocalcR 0.0.2
 
 * Added support for C.E. 2020 in calculations.
 
