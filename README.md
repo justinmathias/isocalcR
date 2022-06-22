@@ -59,7 +59,7 @@ Calculate leaf intrinsic water use efficiency from leaf δ<sup>13</sup>C:
 
 ``` r
 library(isocalcR) #Load the package
-d13C.to.iWUE(-27, 2015, 300, 25) #Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
+d13C.to.iWUE(d13C = -27, year = 2015, elevation = 300, temp = 25) #Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
 #> [1] 80.86748
 ```
 
