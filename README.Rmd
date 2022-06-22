@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 
-The goal of `isocalcR` is to provide a suite of user-friendly, open source functions for commonly performed calculations when working with stable isotope data. A major goal of `isocalcR` is to help eliminate errors associated with data compilation necessary for many standard calculations, as well as to provide the scientific community with a reliable, easily accessible resource for reproducible work. Part of this effort includes best practices of data usage, as the user is not required to download atmospheric CO~2~ or atmospheric δ^13^CO~2~ data for the workhorse calculations, but instead relies on published, peer-reviewed, and recommended publicly available data (Belmecheri and Lavergne, 2020). `isocalcR` is not meant to replace an understanding of the underlying physiological mechanisms related to these calculations, but instead to streamline the process. At present, calculations for years 0 C.E. - 2020 C.E. are stable and will work with all functions, with 2021 being added at the end of the year.
+The goal of `isocalcR` is to provide a suite of user-friendly, open source functions for commonly performed calculations when working with stable isotope data. A major goal of `isocalcR` is to help eliminate errors associated with data compilation necessary for many standard calculations, as well as to provide the scientific community with a reliable, easily accessible resource for reproducible work. Part of this effort includes best practices of data usage, as the user is not required to download atmospheric CO~2~ or atmospheric δ^13^CO~2~ data for the workhorse calculations, but instead relies on published, peer-reviewed, and recommended publicly available data (Belmecheri and Lavergne, 2020). `isocalcR` is not meant to replace an understanding of the underlying physiological mechanisms related to these calculations, but instead to streamline the process. At present, calculations for years 0 C.E. - 2021 C.E. are stable and will work with all functions, with 2022 being added at the end of the year.
 
 ## Installation
 
@@ -60,11 +60,12 @@ library(isocalcR) #Load the package
 d13C.to.iWUE(-27, 2015, 300, 25) #Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
 ```
 
-Data for atmospheric CO~2~ and atmospheric δ^13^CO~2~ for the period 0 C.E. to 2019 C.E. can be loaded and viewed.  Data are from Belmecheri and Lavergne (2020).
+Data for atmospheric CO~2~ and atmospheric δ^13^CO~2~ for the period 0 C.E. to 2021 C.E. can be loaded and viewed.  Data are from Belmecheri and Lavergne (2020).
 
 ```{r CO2data}
 data(CO2data)
 head(CO2data)
+tail(CO2data)
 ```
 
 ## Literature cited
@@ -76,6 +77,8 @@ Belmecheri, S. & Lavergne, A. (2020). Compiled records of atmospheric CO2 concen
 Bernacchi, C.J., Singsaas, E.L., Pimentel, C., Portis Jr, A.R. & Long, S.P. (2001). Improved temperature response functions for models of Rubisco-limited photosynthesis. Plant, Cell Environ., 24, 253–259.
 
 Craig, H. (1953). The geochemistry of the stable carbon isotopes. Geochim. Cosmochim. Acta, 3, 53–92.
+
+Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to CO2 Assimilation by Tree Canopies. in Stable Isotopes in Tree Rings: inferring physiological, climatic, and environmental responses 291–310 (2022). doi:10.1007/978-3-030-92698-4_9.
 
 Davies, J.A. & Allen, C.D. (1973). Equilibrium, Potential and Actual Evaporation from Cropped Surfaces in Southern Ontario. J. Appl. Meteorol., 12, 649–657.
 

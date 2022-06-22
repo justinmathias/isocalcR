@@ -22,8 +22,8 @@ instead relies on published, peer-reviewed, and recommended publicly
 available data (Belmecheri and Lavergne, 2020). `isocalcR` is not meant
 to replace an understanding of the underlying physiological mechanisms
 related to these calculations, but instead to streamline the process. At
-present, calculations for years 0 C.E. - 2020 C.E. are stable and will
-work with all functions, with 2021 being added at the end of the year.
+present, calculations for years 0 C.E. - 2021 C.E. are stable and will
+work with all functions, with 2022 being added at the end of the year.
 
 ## Installation
 
@@ -64,7 +64,7 @@ d13C.to.iWUE(-27, 2015, 300, 25) #Calculate iWUE from leaf organic material with
 ```
 
 Data for atmospheric CO<sub>2</sub> and atmospheric
-δ<sup>13</sup>CO<sub>2</sub> for the period 0 C.E. to 2019 C.E. can be
+δ<sup>13</sup>CO<sub>2</sub> for the period 0 C.E. to 2021 C.E. can be
 loaded and viewed. Data are from Belmecheri and Lavergne (2020).
 
 ``` r
@@ -77,6 +77,14 @@ head(CO2data)
 #> 4  3 277.64    -6.41
 #> 5  4 277.65    -6.41
 #> 6  5 277.66    -6.41
+tail(CO2data)
+#>        yr     Ca d13C.atm
+#> 2016 2015 399.62    -8.44
+#> 2017 2016 402.82    -8.48
+#> 2018 2017 405.13    -8.51
+#> 2019 2018 407.14    -8.55
+#> 2020 2019 410.04    -8.58
+#> 2021 2020 413.95    -8.61
 ```
 
 ## Literature cited
@@ -97,6 +105,11 @@ Rubisco-limited photosynthesis. Plant, Cell Environ., 24, 253–259.
 
 Craig, H. (1953). The geochemistry of the stable carbon isotopes.
 Geochim. Cosmochim. Acta, 3, 53–92.
+
+Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to CO2
+Assimilation by Tree Canopies. in Stable Isotopes in Tree Rings:
+inferring physiological, climatic, and environmental responses 291–310
+(2022). <doi:10.1007/978-3-030-92698-4_9>.
 
 Davies, J.A. & Allen, C.D. (1973). Equilibrium, Potential and Actual
 Evaporation from Cropped Surfaces in Southern Ontario. J. Appl.
