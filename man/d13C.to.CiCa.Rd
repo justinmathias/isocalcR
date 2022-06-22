@@ -24,7 +24,7 @@ The ratio of leaf intercellular to atmospheric CO2 (Ci/Ca), unitless
 Calculates the ratio of the concentration of leaf intercellular to atmospheric CO2, unitless.
 }
 \examples{
-d13C.to.CiCa(-27, 2015, 900, 24)
+d13C.to.Ci(d13C = -27, year = 2015, elevation = 900, temp = 24)
 
 
 
@@ -38,6 +38,8 @@ Belmecheri, S. & Lavergne, A. (2020). Compiled records of atmospheric CO2 concen
 Bernacchi, C.J., Singsaas, E.L., Pimentel, C., Portis Jr, A.R. & Long, S.P. (2001). Improved temperature response functions for models of Rubisco-limited photosynthesis. Plant, Cell Environ., 24, 253–259.
 
 Craig, H. (1953). The geochemistry of the stable carbon isotopes. Geochim. Cosmochim. Acta, 3, 53–92.
+
+Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to CO2 Assimilation by Tree Canopies. in Stable Isotopes in Tree Rings: inferring physiological, climatic, and environmental responses 291–310 (2022). doi:10.1007/978-3-030-92698-4_9.
 
 Davies, J.A. & Allen, C.D. (1973). Equilibrium, Potential and Actual Evaporation from Cropped Surfaces in Southern Ontario. J. Appl. Meteorol., 12, 649–657.
 
