@@ -57,14 +57,21 @@ Calculate leaf intrinsic water use efficiency from leaf δ^13^C:
 
 ```{r example}
 library(isocalcR) #Load the package
-d13C.to.iWUE(d13C = -27, year = 2015, elevation = 300, temp = 25) #Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
+
+#Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
+d13C.to.iWUE(d13C = -27, 
+             year = 2015, 
+             elevation = 300, 
+             temp = 25) 
 ```
 
 Data for atmospheric CO~2~ and atmospheric δ^13^CO~2~ for the period 0 C.E. to 2021 C.E. can be loaded and viewed.  Data are from Belmecheri and Lavergne (2020).
 
 ```{r CO2data}
 data(CO2data)
+
 head(CO2data)
+
 tail(CO2data)
 ```
 
