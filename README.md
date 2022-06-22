@@ -73,9 +73,9 @@ Data for atmospheric CO<sub>2</sub> and atmospheric
 loaded and viewed. Data are from Belmecheri and Lavergne (2020).
 
 ``` r
-data(CO2data)
+data(CO2data) #Load CO2data into your environment
 
-head(CO2data)
+head(CO2data) #View initial CO2data observations
 #>   yr     Ca d13C.atm
 #> 1  0 277.63    -6.41
 #> 2  1 277.63    -6.41
@@ -84,7 +84,7 @@ head(CO2data)
 #> 5  4 277.65    -6.41
 #> 6  5 277.66    -6.41
 
-tail(CO2data)
+tail(CO2data) #View most recent CO2data observations
 #>        yr     Ca d13C.atm
 #> 2016 2015 399.62    -8.44
 #> 2017 2016 402.82    -8.48
