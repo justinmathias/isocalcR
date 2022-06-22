@@ -19,6 +19,8 @@
 #'
 #' Craig, H. (1953). The geochemistry of the stable carbon isotopes. Geochim. Cosmochim. Acta, 3, 53–92.
 #'
+#' Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to CO2 Assimilation by Tree Canopies. in Stable Isotopes in Tree Rings: inferring physiological, climatic, and environmental responses 291–310 (2022). doi:10.1007/978-3-030-92698-4_9.
+#'
 #' Davies, J.A. & Allen, C.D. (1973). Equilibrium, Potential and Actual Evaporation from Cropped Surfaces in Southern Ontario. J. Appl. Meteorol., 12, 649–657.
 #'
 #' Farquhar, G., O’Leary, M. & Berry, J. (1982). On the relationship between carbon isotope discrimination and the intercellular carbon dioxide concentration in leaves. Aust. J. Plant Physiol., 9, 121–137.
@@ -45,7 +47,7 @@ d13C.to.diffCaCi<- function(d13C, year, elevation, temp, frac = 0) {
   d13C.atm <- CO2data[which(CO2data$yr == year),3]
   Ca <- CO2data[which(CO2data$yr == year),2]
   a <- 4.4 #Fractionation associated with diffusion, Craig 1953.
-  b <- 28 #Fractionation associated with Rubisco carboxylation, Ubierna and Farquhar 2014.
+  b <- 25.5 #Fractionation associated with Rubisco carboxylation, Ubierna and Farquhar 2014.
   d <- frac #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.
   D13C <- ((d13C.atm - (d13C.plant - d))/(1 + ((d13C.plant - d)/1000)))
 
