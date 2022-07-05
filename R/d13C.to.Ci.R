@@ -42,7 +42,7 @@
 #'
 #' @examples
 #' d13C.to.Ci(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple")
-#' d13C.to.Ci(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")#'
+#' d13C.to.Ci(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")
 #'
 #'
 #'
