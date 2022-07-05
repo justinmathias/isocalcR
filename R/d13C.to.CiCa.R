@@ -6,6 +6,7 @@
 #' @param year Year to which the sample corresponds
 #' @param elevation Elevation (m.a.s.l.) of the sample, necessary to account for photorespiration processes
 #' @param temp Leaf temperature (°C)
+#' @param method Method to calculate CiCa (simple, photorespiration, or mesophyll). See Lavergne et al. 2022, Ma et al. 2021, Gong et al. 2022
 #' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)
 #'
 #' @return The ratio of leaf intercellular to atmospheric CO2 (Ci/Ca), unitless
@@ -27,6 +28,12 @@
 #'
 #' Frank, D.C., Poulter, B., Saurer, M., Esper, J., Huntingford, C., Helle, G., et al. (2015). Water-use efficiency and transpiration across European forests during the Anthropocene. Nat. Clim. Chang., 5, 579–583.
 #'
+#' Gong, X. Y. et al. Overestimated gains in water‐use efficiency by global forests. Glob. Chang. Biol. 1–12 (2022) doi:10.1111/gcb.16221.
+#'
+#' Lavergne, A. et al. Global decadal variability of plant carbon isotope discrimination and its link to gross primary production. Glob. Chang. Biol. 28, 524–541 (2022).
+#'
+#' Ma, W. T. et al. Accounting for mesophyll conductance substantially improves 13C-based estimates of intrinsic water-use efficiency. New Phytol. 229, 1326–1338 (2021).
+#'
 #' Tsilingiris, P.T. (2008). Thermophysical and transport properties of humid air at temperature range between 0 and 100°C. Energy Convers. Manag., 49, 1098–1110.
 #'
 #' Ubierna, N. & Farquhar, G.D. (2014). Advances in measurements and models of photosynthetic carbon isotope discrimination in C3 plants. Plant. Cell Environ., 37, 1494–1498.
@@ -34,12 +41,12 @@
 #' @export
 #'
 #' @examples
-#' d13C.to.Ci(d13C = -27, year = 2015, elevation = 900, temp = 24)
+#' d13C.to.CiCa(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple")
+#' d13C.to.CiCa(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")
 #'
 #'
 #'
-#'
-d13C.to.CiCa<- function(d13C, year, elevation, temp, frac = 0) {
+d13C.to.CiCa<- function(d13C, year, elevation, temp, method = "simple", frac = 0) {
 
   #Assign d13C as d13C.plant
   d13C.plant <- d13C
@@ -47,7 +54,12 @@ d13C.to.CiCa<- function(d13C, year, elevation, temp, frac = 0) {
   d13C.atm <- CO2data[which(CO2data$yr == year),3]
   Ca <- CO2data[which(CO2data$yr == year),2]
   a <- 4.4 #Fractionation associated with diffusion, Craig 1953.
-  b <- 25.5 #Fractionation associated with Rubisco carboxylation, Ubierna and Farquhar 2014.
+  am <- 1.8 #Fractionation during liquid diffusion and dissolution of CO2 in mesophyll (0.7 + 1.1).
+  gscovergm <- 0.79 #Ratio of stomatal conductance to CO2 and mesophyll conductance, Ma et al. 2021.
+  b <- switch (method,
+               "simple" = 27, #Fractionation associated with effective Rubisco carboxylation, Lavergne et al 2022.
+               "photorespiration" = 28, #Laverge et al 2022
+               "mesophyll" = 29) #Ma et al. 2021
   d <- frac #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.
   D13C <- ((d13C.atm - (d13C.plant - d))/(1 + ((d13C.plant - d)/1000)))
 
@@ -67,6 +79,11 @@ d13C.to.CiCa<- function(d13C, year, elevation, temp, frac = 0) {
 
   pCa <- (1.0e-6)*Ca*Patm #Need to convert atm CO2 (ppm) to atm CO2 (Pa)
   Ci <- ((D13C-a+f*(Gammastar/pCa))/(b-a))*Ca
+  Ci <- switch (method,
+                "simple" =  (D13C -a)/(b-a)*Ca,  #Laverge et al 2022
+                "photorespiration" = ((D13C-a+f*(Gammastar/pCa))/(b-a))*Ca, #Laverge et al 2022
+                "mesophyll" = -(Ca*((b-D13C-f*(Gammastar/pCa))/(b-a+(gscovergm*(b-am))))-Ca)) #Ma et al. 2021
+
   CiCa <- Ci/Ca
 
   return(CiCa)
