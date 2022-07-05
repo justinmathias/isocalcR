@@ -1,6 +1,6 @@
 #' @title d13C.to.iWUE
 #'
-#' @description Calculates leaf intrinsic water use efficiency given plant tissue d13C signature.
+#' @description Calculates leaf intrinsic water use efficiency given plant tissue d13C signature. Defaults to the 'simple' formulation to calculate leaf Ci (See Lavergne et al. 2022).
 #'
 #' @param d13C Measured plant tissue carbon isotope signature, per mille (‰)
 #' @param year Year to which the sample corresponds

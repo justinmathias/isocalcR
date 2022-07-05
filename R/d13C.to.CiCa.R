@@ -1,6 +1,6 @@
 #' @title d13C.to.CiCa
 #'
-#' @description Calculates the ratio of the concentration of leaf intercellular to atmospheric CO2, unitless.
+#' @description Calculates the ratio of the concentration of leaf intercellular to atmospheric CO2, unitless. Defaults to the 'simple' formulation to calculate leaf Ci (See Lavergne et al. 2022).
 #'
 #' @param d13C Measured plant tissue carbon isotope signature, per mille (‰)
 #' @param year Year to which the sample corresponds
