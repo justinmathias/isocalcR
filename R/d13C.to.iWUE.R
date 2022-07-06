@@ -1,15 +1,16 @@
 #' @title d13C.to.iWUE
 #'
-#' @description Calculates leaf intrinsic water use efficiency given plant tissue d13C signature. Defaults to the 'simple' formulation to calculate leaf Ci (See Lavergne et al. 2022).
+#' @description Calculates leaf intrinsic water use efficiency given plant tissue d13C signature. Defaults to the 'simple' formulation (See Lavergne et al. 2022) and 'leaf' tissue to calculate leaf Ci, and subsequently iWUE. Under the 'simple' formulation the apparent fractionation by Rubisco is 27 permille if from 'leaf' tissue and 25.5 permille if from wood tissue (Cernusak and Ubierna 2022).
 #'
 #' @param d13C Measured plant tissue carbon isotope signature, per mille (‰)
 #' @param year Year to which the sample corresponds
 #' @param elevation Elevation (m.a.s.l.) of the sample, necessary to account for photorespiration processes
 #' @param temp Leaf temperature (°C)
 #' @param method Method to calculate iWUE (simple, photorespiration, or mesophyll). See Lavergne et al. 2022, Ma et al. 2021, Gong et al. 2022
+#' @param tissue Plant tissue of the sample (i.e. leaf or wood) used only during calculations using the simple formulation. Defaults to "leaf".
 #' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)
 #'
-#' @return Intrinsic water use efficiency in units of micromol CO2 per mol H2O
+#' @return Intrinsic water use efficiency in units of micromol CO2 per mol H2O.
 #'
 #' @references
 #' Badeck, F.-W., Tcherkez, G., Nogués, S., Piel, C. & Ghashghaie, J. (2005). Post-photosynthetic fractionation of stable carbon isotopes between plant organs—a widespread phenomenon. Rapid Commun. Mass Spectrom., 19, 1381–1391.
@@ -41,12 +42,13 @@
 #' @export
 #'
 #' @examples
-#' d13C.to.iWUE(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple")
+#' d13C.to.iWUE(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "leaf")
+#' d13C.to.iWUE(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "wood")
 #' d13C.to.iWUE(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")
 #'
 #'
 #'
-d13C.to.iWUE <- function(d13C, year, elevation, temp, method = "simple", frac = 0) {
+d13C.to.iWUE <- function(d13C, year, elevation, temp, method = "simple", tissue = "leaf", frac = 0) {
 
   #Assign d13C as d13C.plant
   d13C.plant <- d13C
@@ -56,8 +58,8 @@ d13C.to.iWUE <- function(d13C, year, elevation, temp, method = "simple", frac = 
   a <- 4.4 #Fractionation associated with diffusion, Craig 1953.
   am <- 1.8 #Fractionation during liquid diffusion and dissolution of CO2 in mesophyll (0.7 + 1.1).
   gscovergm <- 0.79 #Ratio of stomatal conductance to CO2 and mesophyll conductance, Ma et al. 2021.
-  b <- switch (method,
-               "simple" = 27, #Fractionation associated with effective Rubisco carboxylation, Lavergne et al 2022.
+  b <- switch(method,
+               "simple" = switch(tissue, "leaf" = 27, "wood" = 25.5), #Fractionation associated with effective Rubisco carboxylation, Cernusak and Ubierna 2022.
                "photorespiration" = 28, #Laverge et al 2022
                "mesophyll" = 29) #Ma et al. 2021
   d <- frac #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.

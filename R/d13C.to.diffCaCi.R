@@ -1,12 +1,13 @@
 #' @title d13C.to.diffCaCi
 #'
-#' @description Calculates the difference between the atmospheric CO2 concentration and the leaf intercellular CO2 concentration in parts per mil (ppm)
+#' @description Calculates the difference between the atmospheric CO2 concentration and the leaf intercellular CO2 concentration in parts per mil (ppm). Defaults to the 'simple' formulation (See Lavergne et al. 2022) and 'leaf' tissue to calculate leaf Ci, and subsequently diffCaCi. Under the 'simple' formulation the apparent fractionation by Rubisco is 27 permille if from 'leaf' tissue and 25.5 permille if from wood tissue (Cernusak and Ubierna 2022).
 #'
 #' @param d13C Measured plant tissue carbon isotope signature, per mille (‰)
 #' @param year Year to which the sample corresponds
 #' @param elevation Elevation (m.a.s.l.) of the sample, necessary to account for photorespiration processes
 #' @param temp Leaf temperature (°C)
 #' @param method Method to calculate CiCa (simple, photorespiration, or mesophyll). See Lavergne et al. 2022, Ma et al. 2021, Gong et al. 2022
+#' @param tissue Plant tissue of the sample (i.e. leaf or wood) used only during calculations using the simple formulation. Defaults to "leaf".
 #' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)
 #'
 #' @return The difference between atmospheric and leaf intercellular CO2 concentrations (ppm).
@@ -41,13 +42,14 @@
 #' @export
 #'
 #' @examples
-#' d13C.to.diffCaCi(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple")
+#' d13C.to.diffCaCi(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "leaf")
+#' d13C.to.diffCaCi(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "wood")
 #' d13C.to.diffCaCi(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")
 #'
 #'
 #'
 #'
-d13C.to.diffCaCi<- function(d13C, year, elevation, temp, method = "simple", frac = 0) {
+d13C.to.diffCaCi<- function(d13C, year, elevation, temp, method = "simple", tissue = "leaf", frac = 0) {
 
   #Assign d13C as d13C.plant
   d13C.plant <- d13C
@@ -57,8 +59,8 @@ d13C.to.diffCaCi<- function(d13C, year, elevation, temp, method = "simple", frac
   a <- 4.4 #Fractionation associated with diffusion, Craig 1953.
   am <- 1.8 #Fractionation during liquid diffusion and dissolution of CO2 in mesophyll (0.7 + 1.1).
   gscovergm <- 0.79 #Ratio of stomatal conductance to CO2 and mesophyll conductance, Ma et al. 2021.
-  b <- switch (method,
-               "simple" = 27, #Fractionation associated with effective Rubisco carboxylation, Lavergne et al 2022.
+  b <- switch(method,
+               "simple" = switch(tissue, "leaf" = 27, "wood" = 25.5), #Fractionation associated with effective Rubisco carboxylation, Cernusak and Ubierna 2022.
                "photorespiration" = 28, #Laverge et al 2022
                "mesophyll" = 29) #Ma et al. 2021
   d <- frac #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.

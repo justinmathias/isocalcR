@@ -2,11 +2,11 @@
 #'
 #' @description Calculates leaf carbon isotope discrimination given plant tissue d13C signature.
 #'
-#' @param d13C Measured plant tissue carbon isotope signature, per mille (‰)
+#' @param d13C.plant Measured plant tissue carbon isotope signature, per mille (‰)
 #' @param year Year to which the sample corresponds
-#' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)
+#' @param frac Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material with no post-photosynthetic fractionation. User should supply reasonable value if leaf fractionation present or if samples are from wood (generally -1.9 - -2.1).
 #'
-#' @return Carbon isotope discrimination in units of per mille (‰)
+#' @return Carbon isotope discrimination in units of per mille (‰).
 #'
 #' @references
 #' Badeck, F.-W., Tcherkez, G., Nogués, S., Piel, C. & Ghashghaie, J. (2005). Post-photosynthetic fractionation of stable carbon isotopes between plant organs—a widespread phenomenon. Rapid Commun. Mass Spectrom., 19, 1381–1391.
@@ -26,15 +26,13 @@
 #' @export
 #'
 #' @examples
-#' d13C.to.D13C(d13C = -27, year = 2015)
+#' d13C.to.D13C(d13C.plant = -27, year = 2015)
 #'
 #'
 #'
 #'
-d13C.to.D13C <- function(d13C, year, frac = 0) {
+d13C.to.D13C <- function(d13Cplant, year, frac = 0) {
 
-  #Assign d13C as d13C.plant
-  d13C.plant <- d13C
   #Assign d13C.atm based on year given.
   d13C.atm <- CO2data[which(CO2data$yr == year),3]
   Ca <- CO2data[which(CO2data$yr == year),2]
