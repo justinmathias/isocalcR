@@ -132,17 +132,25 @@ loaded and viewed. Data are from Belmecheri and Lavergne (2020).
 ``` r
 data(CO2data) #Load CO2data into your environment
 
-head(CO2data) #View initial CO2data observations
-#>   yr     Ca d13C.atm
-#> 1  0 277.63    -6.41
-#> 2  1 277.63    -6.41
-#> 3  2 277.64    -6.41
-#> 4  3 277.64    -6.41
-#> 5  4 277.65    -6.41
-#> 6  5 277.66    -6.41
+head(CO2data, 10) #View initial CO2data observations
+#>    yr     Ca d13C.atm
+#> 1   0 277.63    -6.41
+#> 2   1 277.63    -6.41
+#> 3   2 277.64    -6.41
+#> 4   3 277.64    -6.41
+#> 5   4 277.65    -6.41
+#> 6   5 277.66    -6.41
+#> 7   6 277.66    -6.41
+#> 8   7 277.67    -6.41
+#> 9   8 277.67    -6.41
+#> 10  9 277.68    -6.41
 
-tail(CO2data) #View most recent CO2data observations
+tail(CO2data, 10) #View most recent CO2data observations
 #>        yr     Ca d13C.atm
+#> 2012 2011 390.65    -8.33
+#> 2013 2012 392.77    -8.36
+#> 2014 2013 395.16    -8.39
+#> 2015 2014 397.54    -8.42
 #> 2016 2015 399.62    -8.44
 #> 2017 2016 402.82    -8.48
 #> 2018 2017 405.13    -8.51
