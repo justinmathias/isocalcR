@@ -2,7 +2,7 @@
 #'
 #' @description Calculates the ratio of the concentration of leaf intercellular to atmospheric CO2, unitless. Defaults to the 'simple' formulation (See Lavergne et al. 2022) and 'leaf' tissue to calculate leaf Ci, and subsequently CiCa. Under the 'simple' formulation the apparent fractionation by Rubisco is 27 permille if from 'leaf' tissue and 25.5 permille if from wood tissue (Cernusak and Ubierna 2022).
 #'
-#' @param d13C Measured plant tissue carbon isotope signature, per mille (‰)
+#' @param d13C.plant Measured plant tissue carbon isotope signature, per mille (‰)
 #' @param year Year to which the sample corresponds
 #' @param elevation Elevation (m.a.s.l.) of the sample, necessary to account for photorespiration processes
 #' @param temp Leaf temperature (°C)
@@ -42,16 +42,14 @@
 #' @export
 #'
 #' @examples
-#' d13C.to.CiCa(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "leaf")
-#' d13C.to.CiCa(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "wood")
-#' d13C.to.CiCa(d13C = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")
+#' d13C.to.CiCa(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "leaf")
+#' d13C.to.CiCa(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "wood")
+#' d13C.to.CiCa(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")
 #'
 #'
 #'
-d13C.to.CiCa<- function(d13C, year, elevation, temp, method = "simple", tissue = "leaf", frac = 0) {
+d13C.to.CiCa<- function(d13C.plant, year, elevation, temp, method = "simple", tissue = "leaf", frac = 0) {
 
-  #Assign d13C as d13C.plant
-  d13C.plant <- d13C
   #Assign d13C.atm based on year given.
   d13C.atm <- CO2data[which(CO2data$yr == year),3]
   Ca <- CO2data[which(CO2data$yr == year),2]
