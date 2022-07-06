@@ -9,13 +9,13 @@
 
 <!-- badges: end -->
 
-The goal of `isocalcR` is to provide a suite of user-friendly, open
-source functions for commonly performed calculations when working with
-stable isotope data. A major goal of `isocalcR` is to help eliminate
-errors associated with data compilation necessary for many standard
-calculations, as well as to provide the scientific community with a
-reliable, easily accessible resource for reproducible work. Part of this
-effort includes best practices of data usage, as the user is not
+      The goal of `isocalcR` is to provide a suite of user-friendly,
+open source functions for commonly performed calculations when working
+with stable isotope data. A major goal of `isocalcR` is to help
+eliminate errors associated with data compilation necessary for many
+standard calculations, as well as to provide the scientific community
+with a reliable, easily accessible resource for reproducible work. Part
+of this effort includes best practices of data usage, as the user is not
 required to download atmospheric CO<sub>2</sub> or atmospheric
 δ<sup>13</sup>CO<sub>2</sub> data for the workhorse calculations, but
 instead relies on published, peer-reviewed, and recommended publicly
@@ -24,6 +24,16 @@ to replace an understanding of the underlying physiological mechanisms
 related to these calculations, but instead to streamline the process. At
 present, calculations for years 0 C.E. - 2021 C.E. are stable and will
 work with all functions, with 2022 being added at the end of the year.
+
+      `isocalcR` 0.0.1 and `isocalcR` 0.0.2 incorporated
+photorespiratory processes into calculations where C<sub>i</sub> was
+computed. The current release version of `isocalcR`, 0.1.0, now has the
+option to specify the formulation used in calculating physiological
+indices where C<sub>i</sub> is necessary for calculations (i.e. CiCa,
+diffCaCi, iWUE). Furthermore, `isocalcR` now includes the function
+“custom.calc”, which allows the user to specify variables such as
+atmospheric \[CO2\], that are automatically determined in other
+functions.
 
 ## Installation
 
@@ -76,6 +86,43 @@ custom.calc(d13C.plant = -27,
             elevation = 300,
             temp = 25)
 #> [1] 87.58236
+
+#Calculate the ratio of leaf intercellular to atmospheric CO2 (Ci/Ca) using the simple formulation for leaf and wood. Internally updates apparent fractionation by Rubisco, b, according to Cernusak and Ubierna 2022.
+d13C.to.CiCa(d13C.plant = -27,
+             year = 2015,
+             elevation = 300,
+             temp = 25,
+             tissue = "leaf")
+#> [1] 0.6493374
+
+d13C.to.CiCa(d13C.plant = -27,
+             year = 2015,
+             elevation = 300,
+             temp = 25,
+             tissue = "wood")
+#> [1] 0.6954988
+
+#Calculate iWUE using the "simple", "photorespiration", and "mesophyll" formulations.
+d13C.to.iWUE(d13C.plant = -28,
+             year = 2015,
+             elevation = 300,
+             temp = 15,
+             method = "simple")
+#> [1] 75.99569
+
+d13C.to.iWUE(d13C.plant = -28,
+             year = 2015,
+             elevation = 300,
+             temp = 15,
+             method = "photorespiration")
+#> [1] 75.35815
+
+d13C.to.iWUE(d13C.plant = -28,
+             year = 2015,
+             elevation = 300,
+             temp = 15,
+             method = "mesophyll")
+#> [1] 44.00744
 ```
 
 Data for atmospheric CO<sub>2</sub> and atmospheric
