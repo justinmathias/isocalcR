@@ -4,23 +4,23 @@
 \alias{d13C.to.D13C}
 \title{d13C.to.D13C}
 \usage{
-d13C.to.D13C(d13C, year, frac = 0)
+d13C.to.D13C(d13C.plant, year, frac = 0)
 }
 \arguments{
-\item{d13C}{Measured plant tissue carbon isotope signature, per mille (‰)}
+\item{d13C.plant}{Measured plant tissue carbon isotope signature, per mille (‰)}
 
 \item{year}{Year to which the sample corresponds}
 
-\item{frac}{Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)}
+\item{frac}{Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material with no post-photosynthetic fractionation. User should supply reasonable value if leaf fractionation present or if samples are from wood (generally -1.9 - -2.1).}
 }
 \value{
-Carbon isotope discrimination in units of per mille (‰)
+Carbon isotope discrimination in units of per mille (‰).
 }
 \description{
 Calculates leaf carbon isotope discrimination given plant tissue d13C signature.
 }
 \examples{
-d13C.to.D13C(d13C = -27, year = 2015)
+d13C.to.D13C(d13C.plant = -27, year = 2015)
 
 
 
