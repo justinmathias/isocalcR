@@ -58,7 +58,7 @@ d13C.to.iWUE <- function(d13C.plant, year, elevation, temp, method = "simple", t
   gscovergm <- 0.79 #Ratio of stomatal conductance to CO2 and mesophyll conductance, Ma et al. 2021.
   b <- switch(method,
                "simple" = switch(tissue, "leaf" = 27, "wood" = 25.5), #Fractionation associated with effective Rubisco carboxylation, Cernusak and Ubierna 2022.
-               "photorespiration" = 28, #Laverge et al 2022
+               "photorespiration" = 28, #Lavergne et al 2022
                "mesophyll" = 29) #Ma et al. 2021
   d <- frac #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.
   D13C <- ((d13C.atm - (d13C.plant - d))/(1 + ((d13C.plant - d)/1000)))
@@ -78,10 +78,9 @@ d13C.to.iWUE <- function(d13C.plant, year, elevation, temp, method = "simple", t
   Gammastar <- Gammastar25*Patm/P0*exp(1)^((deltaHa*((Temp.C+273.15)-298.15))/(R*(Temp.C+273.15)*298.15)) #CO2 compensation point in the absence of mitochondrial respiration, units (Pa)
 
   pCa <- (1.0e-6)*Ca*Patm #Need to convert atm CO2 (ppm) to atm CO2 (Pa)
-  Ci <- ((D13C-a+f*(Gammastar/pCa))/(b-a))*Ca
   Ci <- switch (method,
-                "simple" =  (D13C -a)/(b-a)*Ca,  #Laverge et al 2022
-                "photorespiration" = ((D13C-a+f*(Gammastar/pCa))/(b-a))*Ca, #Laverge et al 2022
+                "simple" =  (D13C -a)/(b-a)*Ca,  #Lavergne et al 2022
+                "photorespiration" = ((D13C-a+f*(Gammastar/pCa))/(b-a))*Ca, #Lavergne et al 2022
                 "mesophyll" = -(Ca*((b-D13C-f*(Gammastar/pCa))/(b-a+(gscovergm*(b-am))))-Ca)) #Ma et al. 2021
   iWUE <- (Ca - Ci)*0.625
   return(iWUE)
