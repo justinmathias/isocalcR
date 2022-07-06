@@ -50,6 +50,7 @@ devtools::install_github("justinmathias/isocalcR")
 | `d13C.to.CiCa`      | Calculate the ratio of leaf intercellular CO<sub>2</sub> to atmospheric CO<sub>2</sub> concentration (ppm) given plant tissue δ<sup>13</sup>C signature (‰)                                |
 | `d13C.to.diffCaCi`  | Calculate the difference between atmospheric CO<sub>2</sub> concentration (ppm) and leaf intercellular CO<sub>2</sub> concentration (ppm) given plant tissue δ<sup>13</sup>C signature (‰) |
 | `d13C.to.iWUE`      | Calculate leaf intrinsic water use efficiency (µmol CO<sub>2</sub> mol H<sub>2</sub>O<sup>-1</sup>) given plant tissue δ<sup>13</sup>C signature (‰)                                       |
+| `custom.calc`       | Calculate ∆<sup>13</sup>C, Ci, CiCa, diffCaCi, or iWUE given plant tissue δ<sup>13</sup>C signature (‰)                                                                                    |
 
 <br>
 
@@ -61,11 +62,20 @@ Calculate leaf intrinsic water use efficiency from leaf δ<sup>13</sup>C:
 library(isocalcR) #Load the package
 
 #Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
-d13C.to.iWUE(d13C = -27, 
+d13C.to.iWUE(d13C.plant = -27, 
              year = 2015, 
              elevation = 300, 
              temp = 25) 
-#> [1] 80.86748
+#> [1] 87.58236
+
+#Use custom.calc to calculate iWUE from the same leaf sample as above.
+custom.calc(d13C.plant = -27,
+            d13C.atm = -8.44,
+            outvar = "iWUE",
+            Ca = 399.62,
+            elevation = 300,
+            temp = 25)
+#> [1] 87.58236
 ```
 
 Data for atmospheric CO<sub>2</sub> and atmospheric
@@ -102,8 +112,8 @@ between plant organs—a widespread phenomenon. Rapid Commun. Mass
 Spectrom., 19, 1381–1391.
 
 Belmecheri, S. & Lavergne, A. (2020). Compiled records of atmospheric
-CO2 concentrations and stable carbon isotopes to reconstruct climate and
-derive plant ecophysiological indices from tree rings.
+CO<sub>2</sub> concentrations and stable carbon isotopes to reconstruct
+climate and derive plant ecophysiological indices from tree rings.
 Dendrochronologia, 63, 125748.
 
 Bernacchi, C.J., Singsaas, E.L., Pimentel, C., Portis Jr, A.R. & Long,
@@ -113,10 +123,10 @@ Rubisco-limited photosynthesis. Plant, Cell Environ., 24, 253–259.
 Craig, H. (1953). The geochemistry of the stable carbon isotopes.
 Geochim. Cosmochim. Acta, 3, 53–92.
 
-Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to CO2
-Assimilation by Tree Canopies. in Stable Isotopes in Tree Rings:
-inferring physiological, climatic, and environmental responses 291–310
-(2022). <doi:10.1007/978-3-030-92698-4_9>.
+Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to
+CO<sub>2</sub> Assimilation by Tree Canopies. in Stable Isotopes in Tree
+Rings: inferring physiological, climatic, and environmental responses
+291–310 (2022). <doi:10.1007/978-3-030-92698-4_9>.
 
 Davies, J.A. & Allen, C.D. (1973). Equilibrium, Potential and Actual
 Evaporation from Cropped Surfaces in Southern Ontario. J. Appl.
@@ -130,10 +140,21 @@ Frank, D.C., Poulter, B., Saurer, M., Esper, J., Huntingford, C., Helle,
 G., et al. (2015). Water-use efficiency and transpiration across
 European forests during the Anthropocene. Nat. Clim. Chang., 5, 579–583.
 
+Gong, X. Y. et al. Overestimated gains in water‐use efficiency by global
+forests. Glob. Chang. Biol. 1–12 (2022) <doi:10.1111/gcb.16221>.
+
+Lavergne, A. et al. Global decadal variability of plant carbon isotope
+discrimination and its link to gross primary production. Glob. Chang.
+Biol. 28, 524–541 (2022).
+
+Ma, W. T. et al. Accounting for mesophyll conductance substantially
+improves <sup>13</sup>C-based estimates of intrinsic water-use
+efficiency. New Phytol. 229, 1326–1338 (2021).
+
 Tsilingiris, P.T. (2008). Thermophysical and transport properties of
 humid air at temperature range between 0 and 100°C. Energy Convers.
 Manag., 49, 1098–1110.
 
 Ubierna, N. & Farquhar, G.D. (2014). Advances in measurements and models
-of photosynthetic carbon isotope discrimination in C3 plants. Plant.
-Cell Environ., 37, 1494–1498.
+of photosynthetic carbon isotope discrimination in C<sub>3</sub> plants.
+Plant. Cell Environ., 37, 1494–1498.
