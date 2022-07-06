@@ -49,7 +49,15 @@
 #'
 #'
 #'
-custom.calc <- function(d13C.plant, d13C.atm, frac = 0, outvar = "D13C", Ca = NULL, elevation = NULL, temp = NULL, method = "simple", tissue = "leaf") {
+custom.calc <- function(d13C.plant,
+                        d13C.atm,
+                        frac = 0,
+                        outvar = "D13C",
+                        Ca = NULL,
+                        elevation = NULL,
+                        temp = NULL,
+                        method = "simple",
+                        tissue = "leaf") {
 
   #Define constants
   a <- 4.4 #Fractionation associated with diffusion, Craig 1953.

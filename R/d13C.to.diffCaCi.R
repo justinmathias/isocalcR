@@ -42,14 +42,36 @@
 #' @export
 #'
 #' @examples
-#' d13C.to.diffCaCi(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "leaf")
-#' d13C.to.diffCaCi(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "wood")
-#' d13C.to.diffCaCi(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")
+#' d13C.to.diffCaCi(d13C.plant = -27,
+#' year = 2015,
+#' elevation = 900,
+#' temp = 24,
+#' method = "simple",
+#' tissue = "leaf")
+#'
+#' d13C.to.diffCaCi(d13C.plant = -27,
+#' year = 2015,
+#' elevation = 900,
+#' temp = 24,
+#' method = "simple",
+#' tissue = "wood")
+#'
+#' d13C.to.diffCaCi(d13C.plant = -27,
+#' year = 2015,
+#' elevation = 900,
+#' temp = 24,
+#' method = "photorespiration")
 #'
 #'
 #'
 #'
-d13C.to.diffCaCi<- function(d13C.plant, year, elevation, temp, method = "simple", tissue = "leaf", frac = 0) {
+d13C.to.diffCaCi<- function(d13C.plant,
+                            year,
+                            elevation,
+                            temp,
+                            method = "simple",
+                            tissue = "leaf",
+                            frac = 0) {
 
   #Assign d13C.atm based on year given.
   d13C.atm <- CO2data[which(CO2data$yr == year),3]
