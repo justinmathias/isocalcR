@@ -36,9 +36,25 @@ The difference between atmospheric and leaf intercellular CO2 concentrations (pp
 Calculates the difference between the atmospheric CO2 concentration and the leaf intercellular CO2 concentration in parts per mil (ppm). Defaults to the 'simple' formulation (See Lavergne et al. 2022) and 'leaf' tissue to calculate leaf Ci, and subsequently diffCaCi. Under the 'simple' formulation the apparent fractionation by Rubisco is 27 permille if from 'leaf' tissue and 25.5 permille if from wood tissue (Cernusak and Ubierna 2022).
 }
 \examples{
-d13C.to.diffCaCi(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "leaf")
-d13C.to.diffCaCi(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "simple", tissue = "wood")
-d13C.to.diffCaCi(d13C.plant = -27, year = 2015, elevation = 900, temp = 24, method = "photorespiration")
+d13C.to.diffCaCi(d13C.plant = -27,
+year = 2015,
+elevation = 900,
+temp = 24,
+method = "simple",
+tissue = "leaf")
+
+d13C.to.diffCaCi(d13C.plant = -27,
+year = 2015,
+elevation = 900,
+temp = 24,
+method = "simple",
+tissue = "wood")
+
+d13C.to.diffCaCi(d13C.plant = -27,
+year = 2015,
+elevation = 900,
+temp = 24,
+method = "photorespiration")
 
 
 
