@@ -36,3 +36,8 @@ test_that("d13C.to.diffCaCi() returns a numeric value", {
   expect_type(diffCaCi, "double")
 })
 
+#Test whether the custom.calc output is numeric
+test_that("custom.calc() returns a numeric value", {
+  D13C <- custom.calc(-26, -8)
+  expect_type(D13C, "double")
+})
