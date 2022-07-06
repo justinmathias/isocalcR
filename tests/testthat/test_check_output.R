@@ -1,4 +1,3 @@
-context("test_check_output")
 
 #Test whether the d13C.to.iWUE output is numeric
 test_that("d13C.to.iWUE() returns a numeric value", {
