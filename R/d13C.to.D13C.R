@@ -31,7 +31,10 @@
 #'
 #'
 #'
-d13C.to.D13C <- function(d13C.plant, year) {
+d13C.to.D13C <- function(d13C.plant, year, frac = 0) {
+
+  #Fractionation factor
+  d <- frac
 
   #Assign d13C.atm based on year given.
   d13C.atm <- CO2data[which(CO2data$yr == year),3]
