@@ -31,12 +31,11 @@
 #'
 #'
 #'
-d13C.to.D13C <- function(d13C.plant, year, frac = 0) {
+d13C.to.D13C <- function(d13C.plant, year) {
 
   #Assign d13C.atm based on year given.
   d13C.atm <- CO2data[which(CO2data$yr == year),3]
   Ca <- CO2data[which(CO2data$yr == year),2]
-  d <- frac #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015, can be as high as 6, Lavergne et al. 2022.
   D13C <- ((d13C.atm - (d13C.plant - d))/(1 + ((d13C.plant - d)/1000)))
 
   return(D13C)
