@@ -29,7 +29,6 @@ on recent growth of red spruce trees in the Central Appalachian Mountains. Glob.
 
 data(piru13C)
 head(piru13C)
-
 }
 \references{
 Mathias, J.M. & Thomas, R.B. Disentangling the effects of acidic air pollution, atmospheric CO2, and climate change

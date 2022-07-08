@@ -104,7 +104,6 @@ head(CO2data, 10) #View initial CO2data observations
 
 tail(CO2data, 10) #View most recent CO2data observations
 
-data(piru13C)
 ```
 
 Data for piru13C can loaded and viewed.
