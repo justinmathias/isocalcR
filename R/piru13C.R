@@ -7,14 +7,14 @@
 #'
 #' @usage data(piru13C)
 #'
-#' @format A data frame with 1520 rows and 6 variables:
+#' @format A data frame with 228 rows and 6 variables:
 #' \describe{
-#'   \item{Site}{Study location name}
-#'   \item{Species}{Tree species latin binomial abbreviation}
-#'   \item{TreeID}{Individual tree ID}
 #'   \item{Year}{Year of sample}
+#'   \item{Site}{Study location name}
 #'   \item{wood.d13C}{Measured tree ring (i.e. wood) d13C, in per mille, ‰}
-#'   \item{percentC}{Measured tree ring (i.e. wood) percent carbon}
+#'   \item{MGT_C}{Mean growing season temperature, °C}
+#'   \item{Elevation_m}{Elevation of study location, meters}
+#'   \item{frac}{Leaf-to-wood fractionation factor}
 #' }
 #'
 #' @keywords datasets
