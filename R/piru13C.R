@@ -1,6 +1,7 @@
 #' @title piru13C
 #'
-#' @description Accompanying tree ring carbon isotope signature data for red spruce (Picea rubens) trees from three sites in the Central Appalachian Mountains, West Virginia, USA.
+#' @description Accompanying tree ring carbon isotope signature data for "Mathias, J.M. & Thomas, R.B. Disentangling the effects of acidic air pollution, atmospheric CO2, and climate change
+#' on recent growth of red spruce trees in the Central Appalachian Mountains. Glob. Chang. Biol. 24, 3938–3953 (2018).".
 #'
 #' @docType data
 #'
