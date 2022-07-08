@@ -96,7 +96,6 @@ d13C.to.iWUE(d13C.plant = -28,
 ```
 
 Data for atmospheric CO~2~ and atmospheric δ^13^CO~2~ for the period 0 C.E. to 2021 C.E. can be loaded and viewed.  Data are from Belmecheri and Lavergne (2020).
-
 ```{r CO2data}
 data(CO2data) #Load CO2data into your environment
 
@@ -109,8 +108,11 @@ tail(CO2data, 10) #View most recent CO2data observations
 Data for piru13C can loaded and viewed.
 ```{r piru13C}
 data(piru13C)
+head(piru13C)
 
 ```
+
+
 
 ## Literature cited
 

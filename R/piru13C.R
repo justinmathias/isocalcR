@@ -7,7 +7,7 @@
 #'
 #' @usage data(piru13C)
 #'
-#' @format A data frame with 228 rows and 6 variables:
+#' @format A data frame with 223 rows and 6 variables:
 #' \describe{
 #'   \item{Year}{Year of sample}
 #'   \item{Site}{Study location name}
@@ -28,4 +28,5 @@
 #'
 #' data(piru13C)
 #' head(piru13C)
+#'
 "piru13C"
