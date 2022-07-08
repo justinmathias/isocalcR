@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(isocalcR)
+library(tidyverse)
 ```
 
 
@@ -83,6 +84,15 @@ d13C.to.iWUE(d13C.plant = -28,
              temp = 15,
              method = "mesophyll")
 
+
+
+
+
+
+
+
+
+
 ```
 
 Data for atmospheric CO~2~ and atmospheric δ^13^CO~2~ for the period 0 C.E. to 2021 C.E. can be loaded and viewed.  Data are from Belmecheri and Lavergne (2020).
@@ -95,61 +105,9 @@ head(CO2data, 10) #View initial CO2data observations
 tail(CO2data, 10) #View most recent CO2data observations
 ```
 
-## In-Depth Example
+Data for piru13C can loaded and viewed.
 ```{r piru13C}
-library(isocalcR) #Load the package
-data(piru13C) #Load the red spruce tree ring carbon isotope signature data into your environment
-head(piru13C) #View initial piru13C observations
-
-#Remove years where there are no data
-piru13C <- piru13C %>% 
-  drop_na() 
-
-#Calculate iWUE for each case using 'mapply'
-piru13C$iWUE_simple <- mapply(d13C.to.iWUE, #Call the function
-                              d13C.plant = piru13C$wood.d13C, #Assign the plant d13C value
-                              year = piru13C$Year, #Assign the year to match atmospheric CO2 and atmospheric d13CO2
-                              elevation = piru13C$Elevation_m, #Assign the elevation
-                              temp = piru13C$MGT_C, #Assign the temperature 
-                              method = "simple", #Specify the method
-                              tissue = "wood") #Specify which tissue the sample is from
-
-piru13C$iWUE_photorespiration <- mapply(d13C.to.iWUE, #Call the function
-                                        d13C.plant = piru13C$wood.d13C, #Assign the plant d13C value
-                                        year = piru13C$Year, #Assign the year to match atmospheric CO2 and atmospheric d13CO2
-                                        elevation = piru13C$Elevation_m, #Specify elevation
-                                        temp = piru13C$MGT_C, #Specify the temperature during tissue formation
-                                        method = "photorespiration", #Specify the iWUE calculation formulation
-                                        frac = piru13C$frac) #Specify any post-photosynthetic fractionations. In this case 2 permille to account for leaf to wood.
-
-piru13C$iWUE_mesophyll <- mapply(d13C.to.iWUE, #Call the function
-                                        d13C.plant = piru13C$wood.d13C, #Assign the plant d13C value
-                                        year = piru13C$Year, #Assign the year to match atmospheric CO2 and atmospheric d13CO2
-                                        elevation = piru13C$Elevation_m, #Specify elevation
-                                        temp = piru13C$MGT_C, #Specify the temperature during tissue formation
-                                        method = "mesophyll", #Specify the iWUE calculation formulation
-                                        frac = piru13C$frac) #Specify any post-photosynthetic fractionations. In this case 2 permille to account for leaf to wood.
-
-#Create dataframe for visualizing differences in computed iWUE among the three formulations
-piru13C_long <- piru13C %>%
-  select(Year, Site, iWUE_simple, iWUE_photorespiration, iWUE_mesophyll) %>% #Select only columns of interest
-  rename(Simple = iWUE_simple,
-         Photorespiration = iWUE_photorespiration,
-         Mesophyll = iWUE_mesophyll) %>% 
-  pivot_longer(names_to = "Formulation", values_to = "iWUE", -c(Year, Site))
-
-#Visually examine differences in iWUE based on the formulation used for each study location
-ggplot(data = piru13C_long, aes(x = Year, y = iWUE, color = Formulation)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(aes(group = Formulation), color = "gray30") +
-  facet_wrap(~Site) +
-  ylab(expression("iWUE (µmol mol"^{-1}*")")) 
-
-
-
-
-
-
+data(piru13C)
 
 ```
 
