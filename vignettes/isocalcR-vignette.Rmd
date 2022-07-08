@@ -30,8 +30,6 @@ library(isocalcR)
 |`d13C.to.iWUE`       | Calculate leaf intrinsic water use efficiency (µmol CO~2~ mol H~2~O^-1^) given plant tissue δ^13^C signature (‰)  |
 |`custom.calc`        | Calculate ∆^13^C, Ci, CiCa, diffCaCi, or iWUE given plant tissue δ^13^C signature (‰)  |
 
-
-
 <br>
 
 ## Examples
