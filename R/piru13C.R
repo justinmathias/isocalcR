@@ -28,5 +28,4 @@
 #'
 #' data(piru13C)
 #' head(piru13C)
-#'
 "piru13C"
