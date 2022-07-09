@@ -5,7 +5,7 @@
 \alias{piru13C}
 \title{piru13C}
 \format{
-A data frame with 228 rows and 6 variables:
+A data frame with 223 rows and 6 variables:
 \describe{
   \item{Year}{Year of sample}
   \item{Site}{Study location name}
@@ -29,6 +29,7 @@ on recent growth of red spruce trees in the Central Appalachian Mountains. Glob.
 
 data(piru13C)
 head(piru13C)
+
 }
 \references{
 Mathias, J.M. & Thomas, R.B. Disentangling the effects of acidic air pollution, atmospheric CO2, and climate change
