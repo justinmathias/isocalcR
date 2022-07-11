@@ -59,7 +59,8 @@ Calculate leaf intrinsic water use efficiency from leaf δ^13^C:
 ```{r example}
 library(isocalcR) #Load the package
 
-#Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
+#Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 
+#300 meters above sea level at 25°C.
 d13C.to.iWUE(d13C.plant = -27, 
              year = 2015, 
              elevation = 300, 
@@ -73,7 +74,9 @@ custom.calc(d13C.plant = -27,
             elevation = 300,
             temp = 25)
 
-#Calculate the ratio of leaf intercellular to atmospheric CO2 (Ci/Ca) using the simple formulation for leaf and wood. Internally updates apparent fractionation by Rubisco, b, according to Cernusak and Ubierna 2022.
+#Calculate the ratio of leaf intercellular to atmospheric CO2 (Ci/Ca) using the simple 
+#formulation for leaf and wood. Internally updates apparent fractionation by Rubisco, b, 
+#according to Cernusak and Ubierna 2022.
 d13C.to.CiCa(d13C.plant = -27,
              year = 2015,
              elevation = 300,
@@ -108,9 +111,10 @@ d13C.to.iWUE(d13C.plant = -28,
 
 
 
+#Calculate iWUE from tree ring (wholewood) d13C from Mathias and Thomas (2018) 
+#using previously loaded piru13C data
 
-
-#Remove years where there are no data
+#First drop years where there are no data
 piru13C <- piru13C %>% 
   drop_na() 
 
@@ -184,6 +188,8 @@ Gong, X. Y. et al. Overestimated gains in water‐use efficiency by global fores
 Lavergne, A. et al. Global decadal variability of plant carbon isotope discrimination and its link to gross primary production. Glob. Chang. Biol. 28, 524–541 (2022).
 
 Ma, W. T. et al. Accounting for mesophyll conductance substantially improves ^13^C-based estimates of intrinsic water-use efficiency. New Phytol. 229, 1326–1338 (2021).
+
+Mathias, J. M. & Thomas, R. B. Disentangling the effects of acidic air pollution, atmospheric CO2 , and climate change on recent growth of red spruce trees in the Central Appalachian Mountains. Glob. Chang. Biol. 24, 3938–3953 (2018).
 
 Tsilingiris, P.T. (2008). Thermophysical and transport properties of humid air at temperature range between 0 and 100°C. Energy Convers. Manag., 49, 1098–1110.
 
