@@ -70,6 +70,18 @@ Calculate leaf intrinsic water use efficiency from leaf δ<sup>13</sup>C:
 
 ``` r
 library(isocalcR) #Load the package
+library(tidyverse) #Load the tidyverse
+#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+#> ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+#> ✔ tibble  3.1.7     ✔ dplyr   1.0.8
+#> ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+#> ✔ readr   2.1.2     ✔ forcats 0.5.1
+#> Warning: package 'tidyr' was built under R version 4.0.5
+#> Warning: package 'readr' was built under R version 4.0.5
+#> Warning: package 'dplyr' was built under R version 4.0.5
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
 
 #Calculate iWUE from leaf organic material with a δ13C signature of -27 ‰ for the year 2015, 300 meters above sea level at 25°C.
 d13C.to.iWUE(d13C.plant = -27, 
@@ -159,6 +171,77 @@ tail(CO2data, 10) #View most recent CO2data observations
 #> 2021 2020 413.95    -8.61
 ```
 
+Data for piru13C can loaded, viewed, and used to calculate iWUE for each
+formulation. Data are from Mathias and Thomas (2018).
+
+``` r
+data(piru13C)
+head(piru13C)
+#> # A tibble: 6 × 10
+#> # Groups:   Year [2]
+#>    Year Site  wood.d13C MGT_C Elevation_m  frac iWUE_simple iWUE_photorespirati…
+#>   <dbl> <chr>     <dbl> <dbl>       <dbl> <dbl>       <dbl>                <dbl>
+#> 1  1940 CGL       -23.2  17.4        1206     2        81.7                 67.3
+#> 2  1940 MCG       -24.0  17.4        1060     2        73.4                 59.9
+#> 3  1940 SOR       -24.5  17.4        1033     2        69.2                 56.1
+#> 4  1941 CGL       -22.9  18.6        1206     2        84.4                 69.1
+#> 5  1941 MCG       -23.6  18.6        1060     2        77.5                 63.0
+#> 6  1941 SOR       -24.4  18.6        1033     2        70.4                 56.5
+#> # … with 2 more variables: iWUE_mesophyll <dbl>, iWUE_mesophylll <dbl>
+
+
+#Calculate iWUE from tree ring (wholewood) d13C from Mathias and Thomas (2018) 
+#using previously loaded piru13C data
+
+#First drop years where there are no data
+piru13C <- piru13C %>% 
+  drop_na() 
+
+#Calculate iWUE for each case using 'mapply'
+piru13C$iWUE_simple <- mapply(d13C.to.iWUE, #Call the function
+                              d13C.plant = piru13C$wood.d13C, #Assign the plant d13C value
+                              year = piru13C$Year, #Assign the year to match atmospheric CO2 and atmospheric d13CO2
+                              elevation = piru13C$Elevation_m, #Assign the elevation
+                              temp = piru13C$MGT_C, #Assign the temperature 
+                              method = "simple", #Specify the method
+                              tissue = "wood") #Specify which tissue the sample is from
+
+piru13C$iWUE_photorespiration <- mapply(d13C.to.iWUE, #Call the function
+                                        d13C.plant = piru13C$wood.d13C, #Assign the plant d13C value
+                                        year = piru13C$Year, #Assign the year to match atmospheric CO2 and atmospheric d13CO2
+                                        elevation = piru13C$Elevation_m, #Specify elevation
+                                        temp = piru13C$MGT_C, #Specify the temperature during tissue formation
+                                        method = "photorespiration", #Specify the iWUE calculation formulation
+                                        frac = piru13C$frac) #Specify any post-photosynthetic fractionations. In this case 2 permille to account for leaf to wood.
+
+piru13C$iWUE_mesophyll <- mapply(d13C.to.iWUE, #Call the function
+                                        d13C.plant = piru13C$wood.d13C, #Assign the plant d13C value
+                                        year = piru13C$Year, #Assign the year to match atmospheric CO2 and atmospheric d13CO2
+                                        elevation = piru13C$Elevation_m, #Specify elevation
+                                        temp = piru13C$MGT_C, #Specify the temperature during tissue formation
+                                        method = "mesophyll", #Specify the iWUE calculation formulation
+                                        frac = piru13C$frac) #Specify any post-photosynthetic fractionations. In this case 2 permille to account for leaf to wood.
+
+#Create dataframe for visualizing differences in computed iWUE among the three formulations
+piru13C_long <- piru13C %>%
+  select(Year, Site, iWUE_simple, iWUE_photorespiration, iWUE_mesophyll) %>% #Select only columns of interest
+  rename(Simple = iWUE_simple,
+         Photorespiration = iWUE_photorespiration,
+         Mesophyll = iWUE_mesophyll) %>% 
+  pivot_longer(names_to = "Formulation", values_to = "iWUE", -c(Year, Site))
+
+#Visually examine differences in iWUE based on the formulation used for each study location
+ggplot(data = piru13C_long, aes(x = Year, y = iWUE, color = Formulation)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(aes(group = Formulation), color = "gray30") +
+  theme_classic() +
+  facet_wrap(~Site) +
+  ylab(expression("iWUE (µmol mol"^{-1}*")")) 
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+![](man/figures/README-piru13C-1.png)<!-- -->
+
 ## Literature cited
 
 Badeck, F.-W., Tcherkez, G., Nogués, S., Piel, C. & Ghashghaie, J.
@@ -205,6 +288,11 @@ Biol. 28, 524–541 (2022).
 Ma, W. T. et al. Accounting for mesophyll conductance substantially
 improves <sup>13</sup>C-based estimates of intrinsic water-use
 efficiency. New Phytol. 229, 1326–1338 (2021).
+
+Mathias, J. M. & Thomas, R. B. Disentangling the effects of acidic air
+pollution, atmospheric CO2 , and climate change on recent growth of red
+spruce trees in the Central Appalachian Mountains. Glob. Chang. Biol.
+24, 3938–3953 (2018).
 
 Tsilingiris, P.T. (2008). Thermophysical and transport properties of
 humid air at temperature range between 0 and 100°C. Energy Convers.

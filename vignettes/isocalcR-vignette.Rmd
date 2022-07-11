@@ -159,9 +159,6 @@ ggplot(data = piru13C_long, aes(x = Year, y = iWUE, color = Formulation)) +
   facet_wrap(~Site) +
   ylab(expression("iWUE (µmol mol"^{-1}*")")) 
 
-
-
-
 ```
 
 
