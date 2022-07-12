@@ -67,10 +67,13 @@ custom.calc <- function(d13C.plant,
               "simple" = switch(tissue, "leaf" = 27, "wood" = 25.5), #Fractionation associated with effective Rubisco carboxylation, Cernusak and Ubierna 2022.
               "photorespiration" = 28, #Lavergne et al 2022
               "mesophyll" = 29) #Ma et al. 2021
-  d <- switch(method,
-              "simple" = 0, #No fractionation in "simple", Cernusak and Ubierna 2022.
-              "photorespiration" = frac, #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.
-              "mesophyll" = frac) #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.
+  d <- ifelse(outvar == "D13C", #If outvar is D13C, must allow frac to be user supplied, otherwise frac depends on "method"
+              frac,
+              switch(method,
+                     "simple" = 0, #No fractionation in "simple", Cernusak and Ubierna 2022.
+                     "photorespiration" = frac, #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.
+                     "mesophyll" = frac)) #1.9 for bulk wood, Badeck et al. 2005, 2.1 for a-cellulose, Frank et al. 2015.)
+
   D13C <- ((d13C.atm - (d13C.plant - d))/(1 + ((d13C.plant - d)/1000)))
 
   f <- 12 #Fractionation associated with photorespiration, Ubierna and Farquhar 2014.
