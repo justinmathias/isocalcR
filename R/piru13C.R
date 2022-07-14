@@ -29,11 +29,6 @@
 #'
 #' data(piru13C)
 #' head(piru13C)
-#' piru13C %>%
-#' select(Year, Site, wood.d13C) %>%
-#' pivot_wider(names_from = Site, values_from = wood.d13C) %>%
-#' ggplot(aes(x = Year, y = MCG)) +
-#' geom_point()
 "piru13C"
 
 
