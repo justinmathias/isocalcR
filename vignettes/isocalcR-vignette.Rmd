@@ -148,14 +148,14 @@ piru13C$iWUE_mesophyll <- mapply(d13C.to.iWUE, #Call the function
 
 #Create dataframe for visualizing differences in computed iWUE among the three formulations
 piru13C_long <- piru13C %>%
-  dplyr::select(Year, Site, iWUE_simple, iWUE_photorespiration, iWUE_mesophyll) %>% #Select only columns of interest
+  select(Year, Site, iWUE_simple, iWUE_photorespiration, iWUE_mesophyll) %>% #Select only columns of interest
   rename(Simple = iWUE_simple,
          Photorespiration = iWUE_photorespiration,
          Mesophyll = iWUE_mesophyll) %>% 
-  tidyr::pivot_longer(names_to = "Formulation", values_to = "iWUE", -c(Year, Site))
+  pivot_longer(names_to = "Formulation", values_to = "iWUE", -c(Year, Site))
 
 #Visually examine differences in iWUE based on the formulation used for each study location
-ggplot2::ggplot(data = piru13C_long, aes(x = Year, y = iWUE, color = Formulation)) +
+ggplot(data = piru13C_long, aes(x = Year, y = iWUE, color = Formulation)) +
   geom_point(alpha = 0.5) +
   geom_smooth(aes(group = Formulation), color = "gray30") +
   theme_classic() +
