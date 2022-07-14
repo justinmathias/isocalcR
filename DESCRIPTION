@@ -12,6 +12,7 @@ BugReports: https://github.com/justinmathias/isocalcR/issues
 Depends: R (>= 4.0.0)
 Imports: 
     tidyr,
+    dplyr,
     ggplot2
 Encoding: UTF-8
 Language: en-US

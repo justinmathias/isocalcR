@@ -18,7 +18,10 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(isocalcR)
-library(tidyverse)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+
 ```
 
 
