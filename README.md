@@ -264,7 +264,7 @@ Geochim. Cosmochim. Acta, 3, 53–92.
 Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to
 CO<sub>2</sub> Assimilation by Tree Canopies. in Stable Isotopes in Tree
 Rings: inferring physiological, climatic, and environmental responses
-291–310 (2022). <doi:10.1007/978-3-030-92698-4_9>.
+291–310 (2022).
 
 Davies, J.A. & Allen, C.D. (1973). Equilibrium, Potential and Actual
 Evaporation from Cropped Surfaces in Southern Ontario. J. Appl.
@@ -279,7 +279,7 @@ G., et al. (2015). Water-use efficiency and transpiration across
 European forests during the Anthropocene. Nat. Clim. Chang., 5, 579–583.
 
 Gong, X. Y. et al. Overestimated gains in water‐use efficiency by global
-forests. Glob. Chang. Biol. 1–12 (2022) <doi:10.1111/gcb.16221>.
+forests. Glob. Chang. Biol. 1–12 (2022)
 
 Lavergne, A. et al. Global decadal variability of plant carbon isotope
 discrimination and its link to gross primary production. Glob. Chang.
