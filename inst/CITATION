@@ -1,0 +1,17 @@
+citHeader("To cite isocalcR in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "isocalcR: An R package to streamline and standardize stable isotope calculations in ecological research",
+  author   = personList(person(family="Mathias", given="Justin"),
+  person(family="Hudiburg", given="Justin")),
+  journal  = "Global Change Biology",
+  year     = "2022",
+  volume   = "",
+  number   = "",
+  pages    = "",
+  url      = "https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.16407",
+  textVersion = paste0("J.M. Mathias and T.W. Hudiburg. 2020. isocalcR: An R package to streamline and standardize stable isotope calculations in ecological research. Gobal Change Biology. DOI: 10.1111/gcb.16407."
+  )
+)
+
