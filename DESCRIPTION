@@ -3,7 +3,7 @@ Type: Package
 Title: Isotope Calculations in R 
 Version: 0.1.1
 Author: Justin Mathias
-Date: 2022-07-14
+Date: 2023-03-23
 Maintainer: Justin Mathias <justin.m.mathias@gmail.com>
 Description: Perform common calculations based on published stable isotope theory, such as calculating carbon isotope discrimination and intrinsic water use efficiency from wood or leaf carbon isotope composition. See Mathias and Hudiburg (2022) in Global Change Biology <doi:10.1111/gcb.16407>.  
 License: GPL-3
