@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# isocalcR <img src='man/figures/logo.PNG' align="right" height="145" />
+# isocalcR <img src='man/figures/logo.png' align="right" height="145" />
 
 [![](https://www.r-pkg.org/badges/version/isocalcR?color=green)](https://cran.r-project.org/package=isocalcR)
 [![](https://img.shields.io/badge/Cite%20isocalcR-in%20Global%20Change%20Biology-blue.svg)](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.16407)
