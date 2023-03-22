@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# isocalcR <img src='man/figures/logo.png' align="right" height="145" />
+# isocalcR <img src='man/figures/logo.png' align="right" height="170" />
 
 [![](https://www.r-pkg.org/badges/version/isocalcR?color=green)](https://cran.r-project.org/package=isocalcR)
 [![](https://img.shields.io/badge/Cite%20isocalcR-in%20Global%20Change%20Biology-blue.svg)](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.16407)
@@ -162,17 +162,17 @@ head(CO2data, 10) #View initial CO2data observations
 #> 10  9 277.68    -6.41
 
 tail(CO2data, 10) #View most recent CO2data observations
-#>        yr     Ca d13C.atm
-#> 2012 2011 390.65    -8.33
-#> 2013 2012 392.77    -8.36
-#> 2014 2013 395.16    -8.39
-#> 2015 2014 397.54    -8.42
-#> 2016 2015 399.62    -8.44
-#> 2017 2016 402.82    -8.48
-#> 2018 2017 405.13    -8.51
-#> 2019 2018 407.14    -8.55
-#> 2020 2019 410.04    -8.58
-#> 2021 2020 413.95    -8.61
+#>        yr       Ca  d13C.atm
+#> 2014 2013 395.1600 -8.390000
+#> 2015 2014 397.5400 -8.420000
+#> 2016 2015 399.6200 -8.440000
+#> 2017 2016 402.8200 -8.517840
+#> 2018 2017 404.3096 -8.538528
+#> 2019 2018 406.1517 -8.536936
+#> 2020 2019 408.8255 -8.579904
+#> 2021 2020 411.0815 -8.591044
+#> 2022 2021 413.0753 -8.594226
+#> 2023 2022 415.0163 -8.656291
 ```
 
 Data for piru13C can loaded, viewed, and used to calculate iWUE for each
