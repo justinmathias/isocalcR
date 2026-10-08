@@ -1,7 +1,7 @@
 Package: isocalcR
 Type: Package
 Title: Isotope Calculations in R 
-Version: 0.1.1
+Version: 0.1.1.9000
 Author: Justin Mathias
 Date: 2023-03-23
 Maintainer: Justin Mathias <justin.m.mathias@gmail.com>

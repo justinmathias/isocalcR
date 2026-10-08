@@ -1,3 +1,5 @@
+# isocalcR (development version)
+
 # isocalcR 0.1.1
 
 * Added support for C.E. 2022 in calculations.
