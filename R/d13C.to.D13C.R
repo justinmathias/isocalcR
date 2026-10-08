@@ -37,8 +37,9 @@ d13C.to.D13C <- function(d13C.plant, year, frac = 0) {
   d <- frac
 
   #Assign d13C.atm based on year given.
-  d13C.atm <- CO2data[which(CO2data$yr == year),3]
-  Ca <- CO2data[which(CO2data$yr == year),2]
+  atm <- .atm_lookup(year)
+  d13C.atm <- atm$d13C.atm
+  Ca <- atm$Ca
   D13C <- ((d13C.atm - (d13C.plant - d))/(1 + ((d13C.plant - d)/1000)))
 
   return(D13C)

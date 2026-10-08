@@ -73,8 +73,9 @@ d13C.to.Ci <- function(d13C.plant,
                        frac = 0) {
 
   #Assign d13C.atm based on year given.
-  d13C.atm <- CO2data[which(CO2data$yr == year),3]
-  Ca <- CO2data[which(CO2data$yr == year),2]
+  atm <- .atm_lookup(year)
+  d13C.atm <- atm$d13C.atm
+  Ca <- atm$Ca
   a <- 4.4 #Fractionation associated with diffusion, Craig 1953.
   am <- 1.8 #Fractionation during liquid diffusion and dissolution of CO2 in mesophyll (0.7 + 1.1).
   gscovergm <- 0.79 #Ratio of stomatal conductance to CO2 and mesophyll conductance, Ma et al. 2021.
